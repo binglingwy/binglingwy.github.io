@@ -1,2 +1,2 @@
-# binglingwy.github.io-
+# binglingwy.github.io
 bingling
