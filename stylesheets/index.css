@@ -1,0 +1,21 @@
+.main-content{
+
+}
+
+.layer-main{
+	margin-right: 200px;
+} 
+.layer-side{
+	position: fixed;
+	top:60px;
+	bottom: 0;
+	width:200px;
+	background: #e7e7e7;
+	right: 0;
+}
+.block-head{
+	font-size:16px;
+	color:#222;
+	padding:20px;
+	border-bottom: 2px solid #ccc;
+}
