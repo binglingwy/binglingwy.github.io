@@ -4,13 +4,13 @@
 }
 
 .layer-main{
-	margin-right: 200px;
+	margin-right: 160px;
 } 
 .layer-side{
 	position: fixed;
 	top:60px;
 	bottom: 0;
-	width:200px;
+	width:160px;
 	background: #e7e7e7;
 	right: 0;
 }
@@ -29,7 +29,7 @@
 .mobile-bg{
 	background: url('../images/iphone-6-p.png') center top no-repeat;
 	width: 432px;
-	height: 882px;
+	height: 800px;
 	padding-top: 108px;
 	padding-left: 52px;
 }
