@@ -42,9 +42,10 @@
         <div class="layer-main">
 
             <!--weixxin button:START-->
-            <div id="wxBotton" class="pt-40">&nbsp;</div>
-            <div>
+            
+            <div id="wxBotton">
                 <div class="row clearfix bb-1" >
+                    <!-- <div id="wxBotton" class="pt-40">&nbsp;</div> -->
                     <div class="col w-50 f-l p-10 bs-b clearfix pr-40" >
                         <div class=" mobile-bg f-r">
                             <iframe src="wxBotton.html" width="377" align="center" height="667" frameborder="no" border="0" ></iframe>
@@ -100,8 +101,8 @@
             </div>
             <!--weixxin button:END--> 
             <!--weixxin color:START-->
-            <div  id="wxColorHtml" class="pt-40">&nbsp;</div>
-            <div>
+            <!-- <div  id="wxColorHtml" class="pt-40">&nbsp;</div> -->
+            <div id="wxColorHtml">
                 <div class="row clearfix bb-1">
                     <div class="col w-50 f-l p-10 bs-b clearfix pr-40" >
                         <div class=" mobile-bg f-r">
@@ -158,7 +159,7 @@
             <!--weixxin color:END--> 
 
             <!--weixxin button:START-->
-            <div  id="mallBotton" class="pt-40">&nbsp;</div>
+            <!-- <div  id="mallBotton" class="pt-40">&nbsp;</div> -->
             <div id="mallBotton">
                 <div class="row clearfix bb-1" >
                     <div class="col w-50 f-l p-10 bs-b clearfix pr-40" >
@@ -218,10 +219,10 @@
             </div>
             <!--weixxin button:END--> 
         </div>
-         <div class="layer-side">
-            <div class="ml-10 cor-grey6 fs-14 pt-10 "><a class="cur-p" href="#wxBotton">微信按钮</a></div>
-            <div class="ml-10 cor-grey6 fs-14 pt-10"><a class="cur-p" href="#wxColorHtml">微信字体背景颜色</a></div>
-            <div class="ml-10 cor-grey6 fs-14 pt-10"><a class="cur-p" href="#mallBotton">微商城样式</a></div>
+         <div class="layer-side" id="sideBar">
+            <div class="ml-10 cor-grey6 fs-14 pt-10 "><a class="cur-p" data-href="wxBotton">微信按钮</a></div>
+            <div class="ml-10 cor-grey6 fs-14 pt-10"><a class="cur-p" data-href="wxColorHtml">微信字体背景颜色</a></div>
+            <div class="ml-10 cor-grey6 fs-14 pt-10"><a class="cur-p" data-href="mallBotton">微商城样式</a></div>
             
         </div>
        
@@ -232,5 +233,14 @@
 </div>
 <script type="text/javascript" src="../javascripts/jquery.js"></script>
 <script type="text/javascript" src="../javascripts/main.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#sideBar').on('click', 'a', function(){
+            var scrollId = $(this).attr('data-href'),
+                scrollHeight = $('#'+scrollId).offset().top-60;
+            $('body').animate({scrollTop: scrollHeight+'px'}, 400);
+        });
+    });
+</script>
 </body>
 </html>
