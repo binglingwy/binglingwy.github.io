@@ -1347,6 +1347,10 @@ a.link:hover{
     border-bottom: 2px solid #FF5C5C;
     margin:0 10px;
 }
+.tags-wrap.no-border{
+    border-bottom: none;
+}
+
 .tags-wrap a,.tags-wrap span{
     display: block;
     float: left;
