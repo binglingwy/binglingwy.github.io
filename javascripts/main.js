@@ -47,11 +47,11 @@ $(function(){
 		topCache = contentSection.map(function () { return $(this).offset().top; }),
 		windowHeight = win.height() / 3,
 		windowWidth = win.width(),
-		innerIframe = $(innerIframe.window.document).find('#innerIframe'),
+		innerWindow = $(document.getElementById('innerIframe').contentWindow.document).find('#innerWindow'),
 		currentActive = -1,
 		contentSectionItem = null;
 	var updateContent = function(text){
-		innerIframe.html(text);
+		innerWindow.html(text);
 	};
 	var calculateScroll = function(){
 		var currentTop = win.scrollTop();
