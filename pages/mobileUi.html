@@ -39,6 +39,7 @@
     </header>
 
     <section class="main-content">
+		
         <div class="layer-main">
 
             <!--weixxin button:START-->
@@ -219,6 +220,9 @@
             </div>
             <!--weixxin button:END--> 
         </div>
+		 <div class="layer-mobile">
+			<iframe src="mallUi.html" width="377" align="center" height="667" frameborder="no" border="0" ></iframe>
+		 </div>
          <div class="layer-side" id="sideBar">
             <div class="ml-10 cor-grey6 fs-14 pt-10 "><a class="cur-p" data-href="wxBotton">微信按钮</a></div>
             <div class="ml-10 cor-grey6 fs-14 pt-10"><a class="cur-p" data-href="wxColorHtml">微信字体背景颜色</a></div>
@@ -234,13 +238,13 @@
 <script type="text/javascript" src="../javascripts/jquery.js"></script>
 <script type="text/javascript" src="../javascripts/main.js"></script>
 <script type="text/javascript">
-    $(function(){
+    /*$(function(){
         $('#sideBar').on('click', 'a', function(){
             var scrollId = $(this).attr('data-href'),
                 scrollHeight = $('#'+scrollId).offset().top-60;
             $('body').animate({scrollTop: scrollHeight+'px'}, 400);
         });
-    });
+    });*/
 </script>
 </body>
 </html>

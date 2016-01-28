@@ -37,3 +37,62 @@ $(function(){
 	BL.initPage();
 	
 });
+
+
+$(function(){
+	var win = $(window),
+		menu = $('#sideBar'),
+		mainContainer = $('#mainContainer'),
+		contentSection = mainContainer.find('div.component-block'),
+		topCache = contentSection.map(function () { return $(this).offset().top; }),
+		windowHeight = win.height() / 3,
+		windowWidth = win.width(),
+		currentActive = -1,
+		contentSectionItem = null;
+	var updateContent = function(text){
+			
+	};
+	var calculateScroll = function(){
+		var currentTop = win.scrollTop();
+		if(currentTop > 60){
+			menu.addClass('side-bar-fixed');
+		}else{
+			menu.removeClass('side-bar-fixed');
+		}
+
+		for (var l = contentSection.length; l--;) {
+            if ((topCache[l] - currentTop) < windowHeight) {
+                if (currentActive === l) {
+                    return;
+                }
+                currentActive = l;
+                mainContainer.find('div.component-block.active').removeClass('active');
+                contentSectionItem = $(contentSection[l]);
+                contentSectionItem.addClass('active');
+                var id = contentSectionItem.attr('id');
+                menu.find(".active").removeClass("active");
+                if (id) {
+                    //device.attr('id', id + 'InDevice');
+                    menu.find("a[href='#"+id+"']").parent().addClass("active");
+                } else {
+                    //device.attr('id', '');
+
+                    //找到之前最近一个有id的
+                    var prev = contentSectionItem.prev();
+                    while(prev[0] && !prev.attr("id")) prev = prev.prev();
+                    if(prev[0]) {
+                        menu.find("a[href='#"+prev.attr("id")+"']").parents("li").addClass("active");
+                    }
+                }
+                
+                 updateContent(contentSectionItem.find('.language-html').text());
+                    
+                break;
+            }
+        }
+	};
+
+	win.on('scroll', function(){
+        calculateScroll(win);
+    });
+});
