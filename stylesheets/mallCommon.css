@@ -2,6 +2,7 @@
 html{
 	height:100%!important;
 	font-size:40px;
+
 }
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
 	margin:0; padding:0;
@@ -10,7 +11,8 @@ body {
 	background:#fff;
 	color:#555;
 	font-family: Microsoft YaHei,Verdana, Arial, Helvetica, sans-serif;
-	/*font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; */
+    -webkit-overflow-scrolling : touch;
+	/*font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;*/
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight:normal;
@@ -538,6 +540,10 @@ table {
 	padding-bottom:0.25rem;
 }
 
+.pb-15{
+    padding-bottom:0.375rem;
+}
+
 .pb-20{
 	padding-bottom:0.5rem;
 }
@@ -776,7 +782,18 @@ table {
 	height: 100%
 }
 
-
+/*input cls*/
+.ipt{
+	width: 100%;
+	height: 1.5rem;
+	font-size: 0.7rem;
+	padding-left: 0.25rem;
+	color: #c7c7cd;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	box-sizing: border-box;
+	border: none;
+}
 
 /*select cls*/
 .select-noborder-box {
@@ -828,6 +845,7 @@ table {
 	width: 100%;
 	box-sizing: border-box;
 	padding-left: 0.5rem;
+	border-top:1px solid #e6e6e5;
 	padding-right: 0.5rem;
 	height: 2.25rem;
 	z-index: 99;
@@ -891,9 +909,9 @@ table {
 	position:fixed;
 	z-index:99999;
 	top:30%;
-	left:45%;
-	width:2.5rem;
-	height:2.5rem;
+	left:37%;
+	width:4rem;
+	height:4rem;
 }
 
 /*dialog css*/
@@ -973,14 +991,17 @@ table {
 	position: fixed;
 	padding-right: 0.5rem;
 	padding-left: 0.5rem;
-	padding-bottom: 0.25rem;
-	padding-top: 0.25rem;
-	background: #19182f;
+	/*padding-bottom: 0.25rem;*/
+	padding-top: 0.15rem;
+	/*background: #19182f;*/
+	background: rgba(250,250,250,0.9);
 	border-top:1px solid #e6e6e5;
 	width:100%;
 	bottom: 0;
 	box-sizing: border-box;
     height: 2.25rem;
+	font-size: 0.6rem;
+	color: #979797;
 }
 
 .bottom-fix-w{
@@ -989,9 +1010,9 @@ table {
 }
 
 .wx-bottom-fix .btn{
-	height:1.75rem;
-	line-height:1.75rem;
-	width:4.5rem;
+	height:1.5rem;
+	line-height:1.5rem;
+	width:4.495rem;
 	text-align:center;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
@@ -1000,14 +1021,64 @@ table {
 	background:#FF5C5C;
 	color:#fff;
 	padding:0;
-	font-size: 0.8rem;
+	border:1px solid #FF5C5C;
+	font-size: 0.7rem;
+	margin-top: 0.24rem;
 }
 
+.wx-bottom-fix i.iconfont{
+	font-size: 1.1rem;
+	line-height: 1.1rem;
+}
+
+.wx-bottom-fix .text{
+	display: block;
+	margin-top: 0.1rem;
+}
+
+.wx-bottom-fix a,.bottom-fix-w a{
+	color: #979797;
+}
+
+.wx-bottom-fix .w-200px{
+	width: 5rem;
+}
 
 .wx-bottom-fix .btn-grey{
-	background:#979797;
-	color:#fff;
+	background:#fff;
+	color:#FF5C5C;
+
 }
+
+.wx-bottom-fix .btn-disabed{
+	background: #c7c7cd;
+	color:#979797;
+	border:1px solid #c7c7cd
+
+}
+
+
+
+/*wx tabs*/
+ul.wx-tabs{
+    font-size:0.6rem;
+    overflow: hidden;
+    background: #fff;
+}
+
+ul.wx-tabs li{
+    float: left;
+    height: 1.75rem;
+    line-height: 1.75rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+ul.wx-tabs li.active{
+    border-bottom: 2px solid #FF5C5C;
+    color: #FF5C5C;
+}
+
 
 /*fill buttons*/
 .button{
@@ -1028,6 +1099,12 @@ table {
 }
 .button-red-lg{
 	width:6.5rem;
+}
+
+.button-disabled-lg{
+	width:6.5rem;
+	background: #c7c7cd;
+	color: #979797;
 }
 
 .button-green-lg{
@@ -1103,6 +1180,46 @@ table {
 	line-height: 1rem;
 	overflow: hidden;
 }
+
+.back-icon{
+}
+.back-icon i{
+	font-size: 2.5rem;
+	bottom: 0rem;
+	left: 0.25rem;
+	position: fixed;
+	opacity: 0.4;
+	z-index: 999;
+}
+
+.error-img{
+	width: 6.5rem;
+	height: 7.8rem;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+    margin: 0 auto;
+}
+
+.error-tips, .empty-tips{
+	color:#979797;
+    line-height: 1.5;
+    padding:0 1rem;
+    font-size:0.7rem;
+    text-align: center;
+}
+.empty-wrap{
+    margin-top:4.5rem;
+    text-align: center;
+}
+
+.empty-tips{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.empty-img{
+    width: 3.75rem;
+    height: 3.75rem;
+}
 /*input[type=number]::-webkit-textfield-decoration-container {
     background-color: #fff;}
  */
@@ -1110,6 +1227,9 @@ input[type=number]::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
 input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+input[type=search]{
 	-webkit-appearance: none;
 }
 
