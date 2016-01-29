@@ -34,9 +34,28 @@
             <a class="btn btn-grey">底部灰</a>
             <a class="btn btn-disabed">底部禁用</a>
         </div>
-
-        
     </div>
-    
+    <script type="text/javascript">
+        	$(function(){
+        		$('#toastBtn').click(function(){
+        			Yt.toast('普通提示框', 3000, function(){
+        				$('#tips').text('普通提示框');
+        			});
+        		});
+
+        		$('#alertBtn').click(function(){
+        			Yt.alert('我是alert提示框', function(){
+        				$('#tips').text('alert提示框');
+        			});
+        		});
+
+        		$('#confirmBtn').click(function(){
+        			Yt.confirm('我是alert提示框', function(){
+        				$('#tips').text('confirm提示框');
+        				Yt.dialogClose("ytDialog");
+        			});
+        		});
+        	});
+        </script>
 </body>
 </html>
