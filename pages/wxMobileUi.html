@@ -50,6 +50,7 @@
             <div class="sub-menu"><a class="cur-p" href="#wxForm">表单样式</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxtabs">微信tab样式</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxNoResult">无数据提示</a></div>
+            <div class="sub-menu"><a class="cur-p" href="#wxDialog">对话框</a></div>
             <div class="sub-menu"><a class="cur-p" href="#mallBotton">微商城样式</a></div>
         </div>
         <div class="main-container" id="mainContainer" style="padding-bottom:300px;">
@@ -105,7 +106,7 @@
 
             <div class="component-block" id="wxForm">
                 <div class="component-title" >表单样式</div>
-                <div class="cor-red">注：input框清除内容已包含在内，由于字体原因未加载</div>
+                <div class="cor-red pl-20">注：input框清除内容已包含在内，由于字体原因未加载</div>
                 <div class="component-example">
                 <pre> 
                 <code class="language-html" data-lang="html">
@@ -169,6 +170,43 @@
                 </pre>
                 </div>
             </div>
+
+            <div class="component-block" id="wxDialog">
+                <div class="component-title" >对话框</div>
+                <div class="component-example">
+                <pre> 
+                <code class="language-html" data-lang="html">
+                &lt;p&gt;&lt;a id="toastBtn" class="button button-red-lg"&gt;普通提示框&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a id="alertBtn" class="button button-red-lg"&gt;alert提示框&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;a id="confirmBtn" class="button button-red-lg"&gt;confirm提示框&lt;/a&gt;&lt;/p&gt;
+                &lt;div id="tips" class="cor-red pl-20"&gt;&lt;/div&gt;
+                &lt;script type="text/javascript"&gt;
+                    $(function(){
+                        $('#toastBtn').click(function(){
+                            Yt.toast('普通提示框', 3000, function(){
+                                $('#tips').text('普通提示框');
+                            });
+                        });
+
+                        $('#alertBtn').click(function(){
+                            Yt.alert('我是alert提示框', function(){
+                                $('#tips').text('alert提示框');
+                            });
+                        });
+
+                        $('#confirmBtn').click(function(){
+                            Yt.confirm('我是alert提示框', function(){
+                                $('#tips').text('confirm提示框');
+                                Yt.dialogClose("ytDialog");
+                            });
+                        });
+                    });
+                &lt;/script&gt;
+                </code>
+                </pre>
+                </div>
+            </div>
+
             <div class="component-block" id="mallBotton">
                 <div class="component-title" >微商城样式</div>
                 <div class="component-example">

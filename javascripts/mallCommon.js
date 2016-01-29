@@ -108,12 +108,6 @@ var Yt = {
 	    },
 	   
 	    toast: function (title,time, callback){
-	    	/*var c;
-        	c=document.createElement("div");
-        	c.classList.add("mui-toast-container");
-        	c.innerHTML='<div class="mui-toast-message">'+title+"</div>"
-        	document.body.appendChild(c);
-        	setTimeout(function(){document.body.removeChild(c)},time);*/
 			time = time || 2000;
         	var that = this;
         	this.dialog({
@@ -124,6 +118,35 @@ var Yt = {
         		that.dialogClose("ytDialog");
         		callback && callback();
         	}, time);
+        },
+
+        alert: function(title, callback, time){
+            time = time || 5000;
+            var that = this;
+            this.dialog({
+                content:title,
+                ok: function(){
+                    that.dialogClose("ytDialog");
+                    callback && callback();
+                }
+            });
+
+            setTimeout(function(){
+                that.dialogClose("ytDialog");
+                callback && callback();
+            }, time);
+        },
+
+        confirm: function(title, okCallback){
+            Yt.dialog({
+                content: title,
+                ok:function(){
+                    okCallback && okCallback();
+                },
+                cancel: function(){
+                    Yt.dialogClose("ytDialog");
+                }
+            });
         },
 
         render: function(tpl, data){
