@@ -37,19 +37,20 @@
     </div>
     <script type="text/javascript">
         	$(function(){
-        		$('#toastBtn').click(function(){
+        		var innerWindow = $('#innerWindow');
+        		innerWindow.on('click', '#toastBtn', function(){
         			Yt.toast('普通提示框', 3000, function(){
         				$('#tips').text('普通提示框');
         			});
         		});
 
-        		$('#alertBtn').click(function(){
+        		innerWindow.on('click', '#alertBtn',function(){
         			Yt.alert('我是alert提示框', function(){
         				$('#tips').text('alert提示框');
         			});
         		});
 
-        		$('#confirmBtn').click(function(){
+        		innerWindow.on('click', '#confirmBtn',function(){
         			Yt.confirm('我是alert提示框', function(){
         				$('#tips').text('confirm提示框');
         				Yt.dialogClose("ytDialog");
