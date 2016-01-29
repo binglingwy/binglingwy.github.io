@@ -602,10 +602,10 @@ $(function(){
     wxFormUl.on('tap', '.clear-icon', function(){
         $(this).parent().find('.ipt').val('').focus();
     });
-    wxFormUl.on('focus', 'input.ipt', function(){
+    wxFormUl.on('focus', '.ipt', function(){
         $(this).siblings('.clear-icon').show();
     });
-    wxFormUl.on('blur', 'input.ipt', function(){
+    wxFormUl.on('blur', '.ipt', function(){
         $(this).siblings('.clear-icon').hide();
     });
 });

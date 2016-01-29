@@ -1254,7 +1254,7 @@ ul.wx-tabs li.active{
 	line-height: 100%;
 }
 
-.form-row > .form-item input.ipt{
+.form-row > .form-item input.ipt,.form-row > .form-item textarea{
 	width: 100%;
 	font-size: 0.65rem;
 	color: #555;
@@ -1262,6 +1262,11 @@ ul.wx-tabs li.active{
 	height: 1rem;
 	float: left;
 	padding-right: 0.5rem;
+}
+
+.form-row > .form-item textarea{
+    min-height: 2rem;
+    height: auto;
 }
 .form-row .clear-icon{
 	font-size: 0.75rem;
