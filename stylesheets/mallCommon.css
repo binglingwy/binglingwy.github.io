@@ -1253,7 +1253,10 @@ ul.wx-tabs li.active{
 	box-sizing: border-box;
 	line-height: 100%;
 }
-
+.form-row > .form-item.no-label{
+    width: 100%;
+    padding-left: 0.5rem;
+}
 .form-row > .form-item input.ipt,.form-row > .form-item textarea{
 	width: 100%;
 	font-size: 0.65rem;
@@ -1271,7 +1274,7 @@ ul.wx-tabs li.active{
 .form-row .select-noborder-box .jt{
     top: 0.5rem;
 }
-.form-row > .form-item select{
+.form-row select{
     float: left;
     height: 1rem;
     padding: 0;
@@ -1303,9 +1306,6 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=search]{
 	-webkit-appearance: none;
 }
-
-
-
 @media only screen and (min-width: 720px){
 	html{ font-size:64px;}
 }
