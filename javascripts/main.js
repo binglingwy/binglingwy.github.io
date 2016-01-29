@@ -40,6 +40,9 @@ $(function(){
 
 
 $(function(){
+	if(!$('#container').attr('data-iscroll')){
+		return false;
+	}
 	var win = $(window),
 		menu = $('#sideBar'),
 		mainContainer = $('#mainContainer'),

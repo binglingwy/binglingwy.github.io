@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div id="container">
+    <div id="container" data-iscroll="true">
         <header id="header">
             <!--  <div class="clearfix bg-b cor-w header">
             <h1 class="f-l fs-14 fw-b ml-20 pt-5">
@@ -47,6 +47,7 @@
          <div class="side-bar" id="sideBar">
             <div class="sub-menu active"><a class="cur-p" href="#wxBotton">微信按钮</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxColorHtml">微信字体背景颜色</a></div>
+            <div class="sub-menu"><a class="cur-p" href="#wxForm">表单样式</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxtabs">微信tab样式</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxNoResult">无数据提示</a></div>
             <div class="sub-menu"><a class="cur-p" href="#mallBotton">微商城样式</a></div>
@@ -102,6 +103,27 @@
                 </div>
             </div>
 
+            <div class="component-block" id="wxForm">
+                <div class="component-title" >表单样式</div>
+                <div class="component-example">
+                <pre> 
+                <code class="language-html" data-lang="html">
+                &lt;ul class="wx-form-ul"&gt;
+                    &lt;li class="form-row"&gt;
+                        &lt;label class="form-label"&gt;客服电话&lt;/label&gt;
+                        &lt;div class="form-item"&gt;
+                            &lt;input  name="phone" id="phone" type="text" class="ipt" placeholder="请输入客服电话" maxlength="11" /&gt;
+                            &lt;i class="iconfont clear-icon"&gt;&#xe60d;&lt;/i&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="ta-r pr-20 mt-30"&gt;
+                        &lt;a class="button button-red-lg" &gt;保存&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                </code>
+                </pre>
+                </div>
+            </div>
             <div class="component-block" id="wxtabs">
                 <div class="component-title" >微信tab样式</div>
                 <div class="component-example">
@@ -177,11 +199,5 @@
 </div>
 <script type="text/javascript" src="../javascripts/jquery.js"></script>
 <script type="text/javascript" src="../javascripts/main.js"></script>
-<script type="text/javascript">
-    $(function(){
-        
-        
-    });
-</script>
 </body>
 </html>
