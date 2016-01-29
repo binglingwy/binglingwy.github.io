@@ -1220,6 +1220,58 @@ ul.wx-tabs li.active{
     width: 3.75rem;
     height: 3.75rem;
 }
+
+/* form cls*/
+.wx-form-ul{
+
+}
+
+.wx-form-ul > .form-row{
+	border-bottom: 1px solid #e6e6e5;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	overflow: hidden;
+	background: #fff;
+}
+
+.form-row > .form-label{
+	padding-left: 0.5rem;
+	padding-right: 0.25rem;
+	font-size: 0.65rem;
+	color: #686868;
+	width: 24%;
+	float: left;
+	box-sizing: border-box;
+	height: 1rem;
+	line-height: 1rem;
+}
+.form-row > .form-item{
+	width: 76%;
+	position: relative;
+	padding-right: 0.5rem;
+	float: left;
+	box-sizing: border-box;
+	line-height: 100%;
+}
+
+.form-row > .form-item input.ipt{
+	width: 100%;
+	font-size: 0.65rem;
+	color: #555;
+	border: none;
+	height: 1rem;
+	float: left;
+	padding-right: 0.5rem;
+}
+.form-row .clear-icon{
+	font-size: 0.75rem;
+	right: 0.5rem;
+	top: 0;
+	position: absolute;
+	color: #686868;
+	opacity: 0.6;
+	display: none;
+}
 /*input[type=number]::-webkit-textfield-decoration-container {
     background-color: #fff;}
  */
