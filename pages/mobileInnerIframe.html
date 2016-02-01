@@ -56,6 +56,12 @@
         				Yt.dialogClose("ytDialog");
         			});
         		});
+
+        		innerWindow.on('click', '#submitOrder',function(){
+        			if(!$('#addOrderForm').validateForm()){
+        				return false;
+        			}
+                });
         	});
         </script>
 </body>

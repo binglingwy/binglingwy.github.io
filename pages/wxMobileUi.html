@@ -50,6 +50,7 @@
             <div class="sub-menu"><a class="cur-p" href="#wxForm">表单样式</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxtabs">微信tab样式</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxNoResult">无数据提示</a></div>
+            <div class="sub-menu"><a class="cur-p" href="#wxvalidateForm">表单验证</a></div>
             <div class="sub-menu"><a class="cur-p" href="#wxDialog">对话框</a></div>
             <div class="sub-menu"><a class="cur-p" href="#mallBotton">微商城样式</a></div>
         </div>
@@ -209,6 +210,69 @@
                 </pre>
                 </div>
             </div>
+
+            <!--start:form validate-->
+            <div class="component-block" id="wxvalidateForm">
+                <div class="component-title" >表单验证</div>
+                <div class="component-example">
+                <pre> 
+                <code class="language-html" data-lang="html">
+                &lt;form id="addOrderForm" &gt;
+                    &lt;div class=" mb-20 mt-20 ml-20"&gt;
+                        &lt;div class="fs-14"&gt;收货信息&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ul class="wx-form-ul"&gt;
+                        &lt;li class="form-row"&gt;
+                            &lt;div class="form-item no-label"&gt;
+                                &lt;input type="text" name="deliveryPhone" id="deliveryPhone" value="$!{prevOrderVo.receivePhone}" data-old="$!{prevOrderVo.receivePhone}"
+                                       placeholder="手机号（必填）" validate="{required:'请输入手机号',phone:'手机号有误'}" maxlength="11"
+                                       class="ipt"/&gt;
+                                &lt;i class="iconfont clear-icon"&gt;&#xe60d;&lt;/i&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="form-row"&gt;
+                            &lt;div class="form-item no-label"&gt;
+                                &lt;input type="text" name="deliveryName" id="deliveryName" value="$!{prevOrderVo.receiveName}"
+                                       validate="{required:'请输入收货姓名',name:'请输入正确的收货姓名'}" placeholder="收货姓名(必填,必须与身份证号对应)"
+                                       class="ipt"/&gt;
+                                &lt;i class="iconfont clear-icon"&gt;&#xe60d;&lt;/i&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                
+                        &lt;li class="form-row"&gt;
+                            &lt;div class="form-item no-label"&gt;
+                                &lt;input type="text" name="custIdNum" id="custIdNum" value="$!{prevOrderVo.custIdNum}" data-old="$!{prevOrderVo.custIdNum}"
+                                       validate="{required:'请输入身份证',cardNo:'请填写正确的身份证号码'}" placeholder="身份证号码（必填）"
+                                       class="ipt"/&gt;
+                                &lt;i class="iconfont clear-icon"&gt;&#xe60d;&lt;/i&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+             
+                        &lt;li class="form-row"&gt;
+                            &lt;div class="form-item no-label"&gt;
+                                &lt;textarea name="addressDetail" id="addressDetail" validate="{required:'请输入收货地址',deliveryAddress:'收货地址'}" placeholder="收货地址(必填)"
+                                          class="ipt"&gt;$!{prevOrderVo.address}&lt;/textarea&gt;
+                                &lt;i class="iconfont clear-icon"&gt;&#xe60d;&lt;/i&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;li class="ta-r pr-20 mt-30"&gt;
+                        &lt;div class="button button-red-lg" id="submitOrder"&gt;
+                            立即支付
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                &lt;/form&gt;
+                &lt;script&gt;
+                    $('#submitOrder').on('click', function(){
+                        if(!$('#addOrderForm').validateForm()){
+                            return false;
+                        }
+                    });
+                &lt;/script&gt;
+                </code>
+                </pre>
+                </div>
+            </div><!--start:form validate-->
 
             <div class="component-block" id="wxDialog">
                 <div class="component-title" >对话框</div>
