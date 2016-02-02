@@ -15,7 +15,7 @@
     p{ margin:10px 0 0 10px;}
 </style>
 <body>
-    <div class="container" id="innerWindow">
+    <div class="container bg-e" id="innerWindow">
         <div class="p-20">
             <div class="mt-20"><a class="button">红色基础</a></div>
             <div class="mt-20"><a class="button button-red">红色小</a></div>
@@ -62,6 +62,36 @@
         				return false;
         			}
                 });
+
+                // 搜索框交互
+
+				// 搜索框事件
+				innerWindow.on("click",'.J-search-ipt',function(){
+					if(!innerWindow.data('isSearch')){
+						innerWindow.data('isSearch', true);
+						innerWindow.find('.search-inner').addClass('search-active');
+						innerWindow.find('.clear-icon').show();
+						$('#keywordLayer').show();
+					}
+				});
+
+				// 取消搜索
+				innerWindow.on('click','.back-icon',function(){
+					innerWindow.data('isSearch', false);
+					innerWindow.find('.search-inner').removeClass('search-active');
+					innerWindow.find('.clear-icon').hide();
+					$('#keywordLayer').hide();
+					innerWindow.find('.J-search-ipt').val('');
+				});
+
+				innerWindow.find('.search-icon').on('click', function(){
+					innerWindow.find('.search-btn').trigger("click");
+				});
+				innerWindow.find(".clear-icon").on("click",function(){
+					innerWindow.find('.J-search-ipt').val("");
+				});
+				
+		
         	});
         </script>
 </body>
