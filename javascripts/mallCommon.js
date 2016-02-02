@@ -9,6 +9,7 @@ var Yt = {
 				    		success:null,
 							fail:null,
 				    		error:null,
+                            complete:null,
 							isLayer:true
 				    	},options);
 
@@ -16,13 +17,20 @@ var Yt = {
 				that.createOLayer();
 			}
 
+			if(typeof opts.data != "string"){
+				opts.data = $.extend({t: new Date().getTime()}, opts.data);
+			}else{
+				opts.data += "&t="+new Date().getTime();
+			}
+
 	        var currAjax = $.ajax({
 	            type: opts.type,
 	            url: opts.url,
-	            data: $.extend({_ts: new Date().getTime()}, opts.data),
+	            data: opts.data,
 	            async : opts.async,
 	            dataType: 'json',
 	            complete: function(XMLHttpRequest,status){
+                    opts.complete && opts.complete();
 	                if(status=='timeout'){
 	                    currAjax.abort();
 	                    that.toast('请求超时',2000);
@@ -521,49 +529,18 @@ var Yt = {
             returnObj = {},
             name = '',
             value = '',
-            temp = null,
-			tempObjVal = '',
-			tempArr = [];
+            temp = null;
         for(var i=0; i< arr.length; i++){
             temp = arr[i].split('=');
             name = temp[0];
             value = decodeURIComponent(temp[1]);
-			if(!returnObj[name]){
-				returnObj[name] = value;
-			}else{
-				// 多个name相同情况
-				tempArr = [];
-				tempObjVal = returnObj[name];
-				if(typeof tempObjVal === 'string'){
-					tempArr.push(tempObjVal);
-				}else{
-					tempArr = tempObjVal;
-				}
-				tempArr.push(value);
-
-				returnObj[name] = tempArr;
-			}
+            returnObj[name] = value;
         }
 
         return returnObj;
     },
 
     banDeliveryAddress:['进口','超市','免税', '宝贝', '宝宝', '母婴', '孕婴', '生活馆','贝贝', '孕婴','妈咪', '商店', '商场','商城','门店','直营','连锁'],
-    validateDeliveryAddress: function(deliveryAddress, tips){
-        tips = tips || '收货地址';
-        var that = this,
-            temp = '';
-
-        for(var i=0; i<that.banDeliveryAddress.length; i++){
-            temp = that.banDeliveryAddress[i];
-            if(deliveryAddress.indexOf(temp) != -1){
-                Yt.toast('您的'+tips+'含有'+temp+'等门店名称字样，请修改', 3000);
-                return false;
-            }
-        }
-        return true;
-    },
-
     validateMethods: {
         required: function(value, element, param) {
             if(!value){
@@ -622,15 +599,54 @@ var Yt = {
 $(function(){
     // 表单中input框的清除按钮
     var  wxFormUl = $('.wx-form-ul');
-    wxFormUl.on('tap', '.clear-icon', function(){
-        $(this).parent().find('.ipt').val('').focus();
-    });
-    wxFormUl.on('focus', '.ipt', function(){
-        $(this).siblings('.clear-icon').show();
-    });
-    wxFormUl.on('blur', '.ipt', function(){
-        $(this).siblings('.clear-icon').hide();
-    });
+    if(wxFormUl.length > 0){
+        wxFormUl.on('tap', '.clear-icon', function(){
+            $(this).parent().find('.ipt').val('').focus();
+        });
+        wxFormUl.on('focus', '.ipt', function(){
+            $(this).siblings('.clear-icon').show();
+        });
+        wxFormUl.on('blur', '.ipt', function(){
+            $(this).siblings('.clear-icon').hide();
+        });
+    }
+
+	// 搜索框交互
+	var searchBar = $('#searchBar');
+	if(searchBar.length > 0){
+		var searchBar = $('#searchBar'),
+			keywordLayer = $('#keywordLayer'),
+			cancleBtn = searchBar.find('.back-icon'),
+			searchBtn = searchBar.find('.search-btn'),
+			searchIpt = searchBar.find('.J-search-ipt'),
+			delKeyBtn = searchBar.find('.clear-icon');
+		// 搜索框事件
+		searchIpt.on("click",function(){
+			if(!searchBar.data('isSearch')){
+				searchBar.data('isSearch', true);
+				searchBar.find('.search-inner').addClass('search-active');
+				delKeyBtn.show();
+				keywordLayer.show();
+			}
+		});
+
+		// 取消搜索
+		cancleBtn.click(function(){
+			searchBar.data('isSearch', false);
+			searchBar.find('.search-inner').removeClass('search-active');
+			delKeyBtn.hide();
+			keywordLayer.hide();
+			searchIpt.val('');
+		});
+
+		searchBar.find('.search-icon').on('click', function(){
+			searchBtn.trigger("click");
+		});
+		searchBar.find(".clear-icon").on("click",function(){
+			searchIpt.val("");
+		});
+	}
+
 });
 
 // 验证表单
