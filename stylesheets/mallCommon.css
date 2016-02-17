@@ -1418,6 +1418,43 @@ input[type=search]{
 }
 
 
+/* goods info*/
+.goods-info-wrap{
+	position: relative;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+.goods-info-wrap:after {
+	content: ".";
+	display: block;
+	height:0;
+	clear:both;
+	visibility: hidden;
+}
+.goods-info-wrap .img-wrap{
+	width: 25%;
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+	padding-top: 0.25rem;
+	float: left;
+	box-sizing: border-box;
+}
+.goods-info-wrap .info-wrap{
+	width: 75%;
+	float: left;
+	box-sizing: border-box;
+}
+
+.goods-info-wrap .info-wrap .title{
+	font-size: 0.65rem;
+	color: #686868;
+}
+
+
+
+
+
+
 @media only screen and (min-width: 720px){
 	html{ font-size:64px;}
 }
