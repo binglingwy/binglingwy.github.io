@@ -265,6 +265,35 @@
                         </div>
                     </div>
 
+                    <div class="row clearfix bb-1">
+                        <div class="col w-50 f-l p-20 bs-b">
+                            <h3 class="fw-b mt-10 mb-10 fs-16">属性简写</h3>
+                            <p class="mt-10 mb-10">属性简写需要你非常清楚属性值的正确顺序，而且在大多数情况下并不需要设置属性简写中包含的所有值，所以建议尽量分开声明会更加清晰；</p>
+                            <p class="mt-10 mb-10"><span class="cor-red">margin</span> 和 <span class="cor-red">padding</span> 相反，需要使用简写；</p>
+                            <p>常见的属性简写包括：</p>
+                            <ul class="list fs-14">
+                                <li>font</li>
+                                <li>background</li>
+                            </ul>    
+                        </div>
+                        <div class="col w-50 f-r bg-fa p-20 bs-b" style="min-height:160px;">
+                            <xmp>
+                                /* not good */
+                                .element {
+                                    transition: opacity 1s linear 2s;
+                                }
+
+                                /* good */
+                                .element {
+                                    transition-delay: 2s;
+                                    transition-timing-function: linear;
+                                    transition-duration: 1s;
+                                    transition-property: opacity;
+                                }
+                            </xmp>
+                        </div>
+                    </div>
+
                 </div><!--button:END-->  
 
 
@@ -549,6 +578,29 @@
 
                     <div class="row clearfix bb-1">
                         <div class="col w-50 f-l p-20 bs-b">
+                            <h3 class="fw-b mt-10 mb-10 fs-16">undefined</h3>
+                            <ul class="list fs-14">
+                                <li>永远不要直接使用undefined进行变量判断；</li>
+                                <li>使用typeof和字符串'undefined'对变量进行判断。</li>                             
+                            </ul>    
+                        </div>
+                        <div class="col w-50 f-r bg-fa p-20 bs-b" style="min-height:160px;">
+                            <xmp>
+                            // not good
+                            if (person === undefined) {
+                                ...
+                            }
+
+                            // good
+                            if (typeof person === 'undefined') {
+                                ...
+                            }
+                            </xmp>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix bb-1">
+                        <div class="col w-50 f-l p-20 bs-b">
                             <h3 class="fw-b mt-10 mb-10 fs-16">jshint</h3>
                             <ul class="list fs-14">
                                 <li>用'===', '!=='代替'==', '!='；</li>
@@ -620,6 +672,9 @@
                                 <li>重复的代码提出函数</li>
                                 <li>函数的长度保持在一屏以内</li> 
                                 <li>eventBind函数中只写事件绑定，实现内容另外独立函数</li>
+                                <li>换行符统一用'LF'；</li>
+                                <li>不要混用tab和space；</li>
+                                <li>减少废代码，用不到的代码就咬立刻删掉</li>
                             </ul>    
                         </div>
                         <div class="col w-50 f-r bg-fa p-20 bs-b" style="min-height:160px;">
