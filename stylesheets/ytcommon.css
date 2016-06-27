@@ -1450,6 +1450,9 @@ a.link:hover{
     float: left;
     width: 50%;
 }
+
+
+
 .info-wrap .info-body .info-label{
 	width: 150px;
 	float: left;
@@ -1459,6 +1462,14 @@ a.link:hover{
 
 .form-wrap .form-body .form-col,.info-wrap .info-body .info-col{
     float: left;
+}
+
+.form-wrap .form-row .form-cell .form-col, .info-wrap .info-row .info-cell .info-col{
+    width: 60%;
+}
+
+.form-wrap .form-row .form-col, .info-wrap .info-row .info-col{
+    width: 80%;
 }
 
 .height-30{
