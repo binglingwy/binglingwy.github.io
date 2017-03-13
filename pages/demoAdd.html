@@ -95,75 +95,87 @@
 				<div class="bg-w pb-40" id="htmlCodeWrap">
 				
 <xmp>
-	<form id="configForm" >
-		<div class="form-wrap">
-			<div class="form-title">
-				配置基本信息
+#set($title="新增配置")
+#set($mainMenu="system")
+#set($menu="listConfig")
+#parse("./hipac/common/header.vm")
+<div class="main">
+	<div class="bg-e p-10 breadcrumb">
+		#genrateBreadcrumbs([{"name":"功能菜单"}, {"name":"配置管理","url":"${base}/admin/core/config/list.do"}, {"name":"新增配置"}])
+	</div>
+	<div id="mainWrap">
+		<form id="configForm" >
+			<div class="form-wrap">
+				<div class="form-title">
+					配置基本信息
+				</div>
+				<ul class="form-body">
+					<li>
+						<div class="form-label">配置KEY：</div>
+						<div class="form-col">
+							<input type="text" class="ipt required" id="configName" name="configName" />
+						</div>
+					</li>
+					<li>
+						<div class="form-label">配置Value：</div>
+						<div class="form-col">
+							<textarea name="configValue" rows="4" cols="40" class="required"></textarea>
+						</div>
+					</li>
+					<li class="form-row">
+						<div class="form-cell">
+							<div class="form-label">配置类型：</div>
+							<div class="form-col">
+								<input type="text" class="ipt required" name="configType" />
+							</div>
+						</div>
+						<div class="form-cell">
+							<div class="form-label">配置所属人：</div>
+							<div class="form-col">
+								<input type="text" name="configUser" id="configUser"  class="ipt" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="form-label">是否KEY唯一：</div>
+						<div class="form-col pt-10">
+							<input type="radio" name="isPrivate" value="0" onchange="changePrivate(true)"/>是
+							<input type="radio" name="isPrivate" value="1" checked  class="ml-10" onchange="changePrivate(false)"/>否
+						</div>
+					</li>
+					<li>
+						<div class="form-label">配置所属角色：</div>
+						<div class="form-col">
+							<select name="configRole" id="configRole" class="select">
+								<option value="">--请选择角色--</option>
+								<option value="1">角色1</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<div class="form-label"></div>
+						<div class="form-col">
+							<a class="btn" id="saveBtn">保&nbsp;&nbsp;存</a>
+							<a class="btn btn-secondary" id="cancleBtn">取&nbsp;&nbsp;消</a>
+						</div>
+					</li>
+				</ul>
 			</div>
-			<ul class="form-body">
-				<li>
-					<div class="form-label">配置KEY：</div>
-					<div class="form-col">
-						<input type="text" class="ipt required" id="configName" name="configName" />
-					</div>
-				</li>
-				<li>
-					<div class="form-label">配置Value：</div>
-					<div class="form-col">
-						<textarea name="configValue" rows="4" cols="40" class="required"></textarea>
-					</div>
-				</li>
-				<li class="form-row">
-					<div class="form-cell">
-						<div class="form-label">配置类型：</div>
-						<div class="form-col">
-							<input type="text" class="ipt required" name="configType" />
-						</div>
-					</div>
-					<div class="form-cell">
-						<div class="form-label">配置所属人：</div>
-						<div class="form-col">
-							<input type="text" name="configUser" id="configUser"  class="ipt" />
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="form-label">是否KEY唯一：</div>
-					<div class="form-col pt-10">
-						<input type="radio" name="isPrivate" value="0" onchange="changePrivate(true)"/>是
-						<input type="radio" name="isPrivate" value="1" checked  class="ml-10" onchange="changePrivate(false)"/>否
-					</div>
-				</li>
-				<li>
-					<div class="form-label">配置所属角色：</div>
-					<div class="form-col">
-						<select name="configRole" id="configRole" class="select">
-							<option value="">--请选择角色--</option>
-							<option value="1">角色1</option>
-						</select>
-					</div>
-				</li>
-				<li>
-					<div class="form-label"></div>
-					<div class="form-col">
-						<a class="btn" id="saveBtn">保&nbsp;&nbsp;存</a>
-						<a class="btn btn-secondary" id="cancleBtn">取&nbsp;&nbsp;消</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</form>
-
+		</form>
+	</div>
+</div>
+#parse("./hipac/common/footer.vm")
+<script src="${base}/res/thirdparty/validate/jquery.validate.min.js" type="text/javascript"></script>
+<script src="${jsPath}/js/manager/brandtask/brandTaskShopList.js?v=$version" type="text/javascript"></script>
+<script src="${jsPath}/js/manager/core/config/addConfig.js?v=$version" type="text/javascript"></script>		
 </xmp>
 				</div>
 				
 				<div class="bg-w pb-40 d-n" id="jsCodeWrap">
 				
 <xmp>
-	// 需引入jquery.validate.min.js
 	
 	$(function () {
-	    var basePath = $("#basePath").val();
 	    var list = {
 	        initPage: function(){
 	            this.bindEvent();
@@ -182,7 +194,7 @@
 
 	                Yt.post('save.json', configForm.serialize(), function(){
 	                    Yt.tips("提交成功...");
-	                    window.location.href = basePath+"/admin/core/config/list.do";
+	                    window.location.href = "/admin/core/config/list.do";
 	                });
 
 	            });
