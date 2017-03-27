@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/ytcommon.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/index.css" media="screen">
+    <title>详情类型</title>
+  </head>
+
+  <body>
+    <div id="container">
+        <header id="header">
+          <!--  <div class="clearfix bg-b cor-w header">
+                <h1 class="f-l fs-14 fw-b ml-20 pt-5"><img src="../images/logo.png" /></h1>
+                <ul class="f-r fs-14 pt-20 pb-20">
+                    <li class="f-l"><a class="cor-w mr-20">html</a></li>
+                    <li class="f-l"><a class="cor-w mr-20">css</a></li>
+                    <li class="f-l"><a class="cor-w  mr-20">javascript</a></li>
+                    <li class="f-l"><a class="cor-w mr-20">project</a></li>
+                </ul>
+            </div> -->
+        </header>
+
+        <section class="main-content bg-w"> 
+			<div style="height: 20px;" class="bg-blue cor-w">我是块级元素</div>
+
+			<span>我是行内span</span><a>我是行内a</a>
+
+			<div>
+				<img src="http://staticonline.hipac.cn/item/201611/11281030213654.jpeg@250w" />
+				<img src="http://staticonline.hipac.cn/item/201611/11281030213654.jpeg@250w" />
+			</div>
+
+			<div>
+				<input value="input" />
+				<textarea>textarea</textarea>
+				<select id=“selectTest”>
+					<option  value="1" >值1</option >
+					<option  value="2" >值2</option >
+					<option  value="3" >值3</option >
+				</select>
+				<input type="radio" name="radioTest" value="1" class="radio1">值1
+				<input type="radio" name="radioTest" value="2" class="radio2">值2
+				<input type="checkbox" name="" value="3">checkbox值3
+				<input type="checkbox" name="" value="4">checkbox值4
+				<input type="checkbox" name="" value="5">checkbox值5
+			</div>
+
+        </section>
+		       
+   
+    </div>
+    <script type="text/javascript" src="../javascripts/jquery.js"></script>
+    <script type="text/javascript" src="../javascripts/main.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// radio选中
+			$('[type=radio][value=1]').prop('checked', true);
+
+			// 获取radio选中值
+			console.log($('[type=radio]:checked').val());
+
+			// checkbox选中
+			$('[type=checkbox]').val('5');
+
+			// checkbox获取值
+			console.log($('[type=checkbox]').val());
+
+			// 获取多个选中checkbox需要遍历
+
+			// select设值
+			$('#selectTest').val('2');
+
+			// select取值
+			console.log($('#selectTest').val());
+
+			// select选中的文本
+			console.log($('#selectTest').find("option:selected").text());
+
+
+		});
+	</script>
+  </body>
+</html>
